@@ -1,0 +1,139 @@
+const express = require("express");
+const {
+  getCertifications,
+  getCertification,
+  createCertification,
+  updateCertification,
+  deleteCertification,
+} = require("../controllers/certifications.controller");
+const { validateCertification } = require("../middleware/validation");
+
+const router = express.Router();
+
+/**
+ * @swagger
+ * components:
+ *   schemas:
+ *     Certification:
+ *       type: object
+ *       required:
+ *         - name
+ *         - issuer
+ *         - year
+ *         - credentialId
+ *         - level
+ *       properties:
+ *         name:
+ *           type: string
+ *         issuer:
+ *           type: string
+ *         year:
+ *           type: string
+ *         credentialId:
+ *           type: string
+ *         level:
+ *           type: string
+ */
+
+/**
+ * @swagger
+ * /api/certifications:
+ *   get:
+ *     summary: Get all certifications
+ *     tags: [Certifications]
+ *     responses:
+ *       200:
+ *         description: Certifications retrieved successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 status:
+ *                   type: string
+ *                   example: success
+ *                 count:
+ *                   type: number
+ *                 data:
+ *                   type: array
+ *                   items:
+ *                     $ref: '#/components/schemas/Certification'
+ *   post:
+ *     summary: Create certification
+ *     tags: [Certifications]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             $ref: '#/components/schemas/Certification'
+ *     responses:
+ *       201:
+ *         description: Certification created successfully
+ *       400:
+ *         description: Validation error
+ */
+router
+  .route("/")
+  .get(getCertifications)
+  .post(validateCertification, createCertification);
+
+/**
+ * @swagger
+ * /api/certifications/{id}:
+ *   get:
+ *     summary: Get single certification
+ *     tags: [Certifications]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: string
+ *     responses:
+ *       200:
+ *         description: Certification retrieved successfully
+ *       404:
+ *         description: Certification not found
+ *   put:
+ *     summary: Update certification
+ *     tags: [Certifications]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: string
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             $ref: '#/components/schemas/Certification'
+ *     responses:
+ *       200:
+ *         description: Certification updated successfully
+ *       404:
+ *         description: Certification not found
+ *   delete:
+ *     summary: Delete certification
+ *     tags: [Certifications]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: string
+ *     responses:
+ *       200:
+ *         description: Certification deleted successfully
+ *       404:
+ *         description: Certification not found
+ */
+router
+  .route("/:id")
+  .get(getCertification)
+  .put(validateCertification, updateCertification)
+  .delete(deleteCertification);
+
+module.exports = router;
