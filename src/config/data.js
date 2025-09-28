@@ -1,8 +1,8 @@
 const personalInfo = {
   // Basic Information
   name: "Rahul Ladumor",
-  title: "3x AWS Certified Full-Stack JavaScript & Cloud Engineer",
-  tagline: "Serverless Architecture Expert | Saving Companies $100K+ Annually",
+  title: "4x AWS Community Builder (Serverless) | Serverless Expert | LLM | AI ML",
+  tagline: "30-70% Cost Reduction Specialist | DevOps & CI/CD Automation | Helping Enterprises Scale with Lambda & Kubernetes",
   location: "Surat, Gujarat, India",
   timezone: "GMT+5:30",
   image: "/assets/images/profile.avif",
@@ -15,8 +15,8 @@ const personalInfo = {
   // Social Media
   social: {
     linkedin: "https://linkedin.com/in/rahulladumor",
-    github: "https://github.com/rahulladumor",
-    twitter: "https://twitter.com/ladumorrahul",
+    github: "https://github.com/Rahulladumor",
+    twitter: "https://twitter.com/Rahul__ladumor",
   },
 
   // Metrics
@@ -28,9 +28,15 @@ const personalInfo = {
   ],
 
   // Professional Summary
-  bio: `3x AWS Certified Full-Stack JavaScript & Cloud Engineer with 8+ years of experience transforming businesses through serverless architectures, DevOps automation, and cost optimization. AWS Community Builder and startup mentor, specializing in reducing infrastructure costs while improving performance and reliability.
-  
-    Currently working as Independent Consultant at NTT Data & Kapara Co. in Tokyo, Japan, building serverless pipelines and architecting crypto trading platforms. Previously Lead Engineer at ProdigyBuild and SDE-II at ProtectOnce in San Francisco Bay Area, with proven track record of achieving 99.99% uptime and 40%+ cost savings.`,
+  bio: `Hey, I'm Rahul, 4x AWS Community Builder, three-time certified, and the guy start-ups call when "it just needs to WORK (securely) by launch day."
+
+⚡ 8 years building micro-service & event-driven stacks:
+• Architected a zero-downtime migration to AWS Lambda + EventBridge that now processes 5M orders/mo <200ms.
+• Hardened fintech APIs with DevSecOps pipelines (SCA + DAST) reducing vuln MTTR from 14 days → 48 hrs.
+• Rolled out IAM least-privilege and KMS envelope encryption across 200+ resources—passed audit first try.
+• Prototyped an Agentic-AI workflow (Bedrock + LangChain) that auto-triages cloud incidents.
+
+Trusted by Series A-C startups & Fortune 500 companies for mission-critical cloud transformations. Currently pursuing PG Certificate in Agentic AI from IIT Roorkee.`,
 
   // Experience
   experience: {
@@ -52,27 +58,31 @@ const personalInfo = {
   skills: {
     primary: [
       "AWS Lambda & Serverless Architecture",
-      "Full-Stack JavaScript Development",
-      "Cloud Architecture & Migration",
-      "DevOps & Infrastructure Automation",
-      "Node.js & React.js",
-      "Technical Leadership",
+      "Chatbot Development (AWS Lex, Azure Bot Service)",
+      "Kubernetes & Container Orchestration",
+      "Go (Programming Language)",
+      "AI-Powered Cloud Systems Integration",
+      "LLM Training & Agentic AI",
+      "Technical Leadership & System Architecture",
     ],
     secondary: [
       "API Gateway & Microservices",
       "DynamoDB & Database Design",
       "CI/CD Pipeline Optimization",
-      "Security & Vulnerability Management",
-      "Real-time Data Processing",
-      "Performance Optimization",
+      "Cloud Security & Compliance (PCI-DSS, ISO 27001)",
+      "Real-time Data Processing (5M orders/mo)",
+      "Performance Optimization & Cost Reduction (30-70%)",
+      "DevSecOps & Security Automation",
+      "Event-Driven Architecture",
     ],
     tools: [
-      "AWS (Lambda, API Gateway, DynamoDB, ECS/EKS)",
-      "Terraform & CloudFormation",
+      "AWS (Lambda, EventBridge, ECS/EKS, Bedrock, CDK)",
+      "Terraform & CloudFormation (Infrastructure as Code)",
       "Docker & Kubernetes",
-      "Node.js, Go, Python",
-      "React, Next.js",
-      "MongoDB, PostgreSQL, AuroraDB",
+      "Node.js, Go, Python, TypeScript",
+      "LangChain, AWS Lex, Azure Bot Service",
+      "Jest, GitHub Actions, Helm",
+      "ElasticSearch, DynamoDB, GraphQL",
     ],
   },
 
@@ -93,7 +103,21 @@ const personalInfo = {
       level: "Associate",
     },
     {
-      name: "AWS Community Builder",
+      name: "Technical Professional",
+      issuer: "AWS",
+      year: "2024",
+      credentialId: "AWS-TP-2024",
+      level: "Professional",
+    },
+    {
+      name: "Cutshort Certified Javascript - Basic",
+      issuer: "Cutshort",
+      year: "2024",
+      credentialId: "CS-JS-2024",
+      level: "Basic",
+    },
+    {
+      name: "AWS Community Builder (4x)",
       issuer: "Amazon Web Services",
       year: "2022-Present",
       credentialId: "AWS-CB-2022",
@@ -103,13 +127,14 @@ const personalInfo = {
 
   // Achievement Highlights
   achievements: [
-    "8+ years architecting high-impact web and cloud-native solutions",
-    "3x AWS Certified (Developer & Solutions Architect)",
-    "AWS Community Builder (2022–Present)",
-    "Featured Speaker – AWS User Group (2024)",
-    "Built systems handling 1M+ events/day and 100K+ calls/month",
-    "Improved trader decision-making speed by 25% through real-time dashboards",
-    "Led 5-person Agile team, cutting release cycles from bi-weekly to weekly",
+    "8+ years architecting high-impact web and cloud-native AI-powered solutions",
+    "4x AWS Community Builder (Serverless) - Multi-year recognition",
+    "Architected zero-downtime migration processing 5M orders/mo <200ms",
+    "Hardened fintech APIs reducing vulnerability MTTR from 14 days → 48 hrs",
+    "Distinguished Alumni Recognition - 60th Anniversary Celebration",
+    "Implemented IAM least-privilege across 200+ resources—passed audit first try",
+    "Prototyped Agentic-AI workflow (Bedrock + LangChain) for auto-incident triage",
+    "Currently pursuing PG Certificate in Agentic AI from IIT Roorkee",
   ],
 
   // Languages
@@ -341,7 +366,7 @@ const personalInfo = {
   credentialsSection: {
     title: "Proven AWS Expertise & Recognition",
     subtitle:
-      "years of hands-on AWS experience backed by industry certifications, community recognition, and measurable client results.",
+      "7+ years of hands-on AWS experience backed by industry certifications, community recognition, AI-powered solutions, and measurable client results.",
 
     achievements: [
       {
@@ -364,17 +389,17 @@ const personalInfo = {
         color: "#38A169",
       },
       {
-        title: "Technical Writer",
+        title: "Technical Writer & Content Creator",
         description:
-          "Published articles on AWS best practices and cloud architecture",
+          "Published 50+ articles on AWS, AI integration, and cloud architecture with 100K+ combined views",
         icon: "PenTool",
         color: "#7C3AED",
       },
     ],
 
     communityMetrics: {
-      followers: 5000,
-      articleViewsTarget: 55000,
+      followers: 6000,
+      articleViewsTarget: 100000,
       animationSpeed: {
         followers: 100,
         views: 50,
@@ -877,27 +902,105 @@ const personalInfo = {
   // Professional Work Experience
   workExperience: [
     {
-      company: "NTT Data & Kapara Co.",
-      position: "Independent Consultant",
-      duration: "Jan 2025 - Present",
-      location: "Tokyo, Japan",
+      company: "ASTM International",
+      position: "Senior AWS Solution Architect",
+      duration: "Sep 2025 - Present",
+      location: "Pennsylvania, United States",
       description:
-        "Building serverless pipelines and architecting crypto trading platforms with focus on performance optimization and team leadership.",
+        "Leading AWS solution architecture for international standards organization, focusing on cloud-native transformations and enterprise-grade infrastructure.",
       technologies: [
-        "AWS Lambda",
-        "ECS",
-        "EKS",
-        "CloudWatch",
-        "Node.js",
-        "Go",
-        "Terraform",
+        "AWS",
+        "Solutions Architecture",
+        "Cloud Migration",
+        "Enterprise Systems",
       ],
       achievements: [
-        "Built serverless pipelines reducing latency by 30%",
-        "Migrated monolith to ECS/EKS achieving 40% faster deployments",
-        "Implemented CloudWatch auto-remediation for 99.9% uptime",
-        "Architected crypto trading aggregator improving trader decision-making speed by 25%",
-        "Led 5-person Agile team, cutting release cycles from bi-weekly to weekly",
+        "Architecting enterprise-grade AWS solutions for global standards organization",
+        "Leading cloud transformation initiatives for mission-critical systems",
+      ],
+    },
+    {
+      company: "Turing",
+      position: "LLM Trainer - DevOps | Amazon IAC RLHF Project",
+      duration: "Jul 2025 - Present",
+      location: "Remote",
+      description:
+        "Design, implement, and manage scalable, secure AWS environments using AWS CDK with TypeScript. Translate complex requirements into reusable, testable CDK constructs.",
+      technologies: [
+        "AWS CDK",
+        "TypeScript",
+        "CloudFormation",
+        "Jest",
+        "CI/CD",
+        "Infrastructure as Code",
+      ],
+      achievements: [
+        "Designed and deployed AWS infrastructure-as-code solutions with AWS CDK + TypeScript",
+        "Migrated legacy/on-prem systems to AWS with secure VPCs and networking",
+        "Developed reusable TypeScript constructs with interfaces, classes, and generics",
+        "Automated deployments using CDK CLI and integrated with CI/CD pipelines",
+        "Wrote and maintained Jest unit tests ensuring code quality and reliability",
+      ],
+    },
+    {
+      company: "Freelance | Self-Employed",
+      position: "Cloud Consultant",
+      duration: "Mar 2025 - Present",
+      location: "Surat, Gujarat, India",
+      description:
+        "AWS Certified Full-Stack JavaScript & Cloud Engineer providing independent consulting for contract engagements and freelance projects. Specialized in serverless architecture and cloud optimization.",
+      technologies: [
+        "AWS Lambda",
+        "Serverless Framework",
+        "Node.js",
+        "React",
+        "DevOps",
+        "Infrastructure as Code",
+      ],
+      achievements: [
+        "Cut client costs by $100K+ annually through serverless architecture",
+        "Achieved 99.99% uptime across multiple client systems",
+        "Freed 100+ engineering hours per month through automation",
+        "Delivered cloud architecture and full-stack solutions globally",
+      ],
+    },
+    {
+      company: "Topmate.io",
+      position: "Cloud Coach & Consultant (1:1 AWS | DevOps | Career)",
+      duration: "Nov 2024 - Present",
+      location: "Surat, Gujarat, India",
+      description:
+        "Verified cloud mentor delivering personalized 1:1 coaching across AWS Architecture, Cost Optimization, Certification Roadmapping, and Career Guidance.",
+      technologies: [
+        "AWS Architecture",
+        "Cost Optimization",
+        "Serverless",
+        "Lambda/API/IAM/Terraform",
+        "Career Mentoring",
+      ],
+      achievements: [
+        "Helped startups save ₹50L+ annually through AWS cost optimization",
+        "Guided professionals to ace AWS exams with custom strategies",
+        "Resolved real-world serverless debugging issues live",
+        "Provided cloud career guidance to professionals across India, US, and SEA",
+      ],
+    },
+    {
+      company: "NTT",
+      position: "Senior Software Engineer - Contract",
+      duration: "Jan 2025 - Mar 2025",
+      location: "Tokyo, Japan",
+      description:
+        "Contract engagement focusing on enterprise-grade software solutions and cloud infrastructure development.",
+      technologies: [
+        "AWS",
+        "Node.js",
+        "Enterprise Systems",
+        "Cloud Infrastructure",
+      ],
+      achievements: [
+        "Delivered enterprise-grade software solutions",
+        "Implemented scalable cloud infrastructure architectures",
       ],
     },
     {
@@ -1073,15 +1176,22 @@ const personalInfo = {
   // Educational Background
   education: [
     {
+      institution: "Indian Institute of Technology, Roorkee",
+      degree: "PG Certificate in Agentic AI, GenAI & Machine Learning",
+      duration: "May 2025 - February 2026",
+      gpa: "In Progress",
+      location: "Roorkee, India",
+    },
+    {
       institution: "Veer Narmad South Gujarat University",
-      degree: "Master's in Computer Science",
+      degree: "Master of Science - MS, Information Technology",
       duration: "2018 - 2020",
       gpa: "8.7",
       location: "Surat, Gujarat, India",
     },
     {
       institution: "Veer Narmad South Gujarat University",
-      degree: "Bachelor's in Computer Science",
+      degree: "Bachelor of Science - BS, Information Technology",
       duration: "2016 - 2018",
       gpa: "7.4",
       location: "Surat, Gujarat, India",
@@ -1252,25 +1362,67 @@ const personalInfo = {
     // Publications & Articles
     publications: [
       {
-        title: "The Complete Guide to AWS Lambda Cost Optimization",
+        title: "AWS in 2025: Latest Updates and Best Practices for Developers",
         platform: "Dev.to",
-        date: "2023",
-        url: "https://dev.to/rahulladumor/aws-lambda-cost-optimization",
+        date: "2025",
+        url: "https://dev.to/rahulladumor/aws-in-2025-latest-updates-and-best-practices-for-developers-56ah",
+        views: "5K+",
+      },
+      {
+        title: "DeepSeek R1 AI: Game-Changer or Regionally Limited? 2025 Analysis",
+        platform: "Dev.to",
+        date: "2025",
+        url: "https://dev.to/rahulladumor/deepseek-r1-a-game-changer-or-a-regionally-constrained-ai-3iaj",
+        views: "3K+",
+      },
+      {
+        title: "Mastering AWS Lambda Performance: Advanced Optimization Strategies for 2025",
+        platform: "Dev.to",
+        date: "2025",
+        url: "https://dev.to/rahulladumor/mastering-aws-lambda-performance-advanced-optimization-strategies-for-2025-3bfe",
+        views: "8K+",
+      },
+      {
+        title: "Working with Amazon OpenSearch Service Direct Queries with Amazon S3",
+        platform: "Dev.to",
+        date: "2024",
+        url: "https://dev.to/rahulladumor/working-with-amazon-opensearch-service-direct-queries-with-amazon-s3-the-first-ever-detailed-guide-4m2a",
         views: "25K+",
       },
       {
-        title: "Building Scalable Serverless Applications",
-        platform: "Medium",
-        date: "2023",
-        url: "https://medium.com/@rahulladumor/serverless-scalability",
-        views: "18K+",
+        title: "Serverless Cost Optimization Nightmares: A 2025 Survival Guide",
+        platform: "Dev.to",
+        date: "2025",
+        url: "https://dev.to/rahulladumor/serverless-horror-stories-real-world-nightmares-and-how-to-avoid-them-5eoi",
+        views: "12K+",
       },
       {
-        title: "DevOps Best Practices for Startups",
-        platform: "Personal Blog",
-        date: "2022",
-        url: "https://blog.rahulladumor.in/devops-startups",
+        title: "Understanding Passkeys: The Behind-the-Scenes Magic",
+        platform: "Dev.to",
+        date: "2025",
+        url: "https://dev.to/rahulladumor/understanding-passkeys-the-behind-the-scenes-magic-of-passwordless-authentication-7i",
+        views: "6K+",
+      },
+      {
+        title: "10 Trending Node.js Libraries and Frameworks to Boost Your Web Development",
+        platform: "Dev.to",
+        date: "2024",
+        url: "https://dev.to/rahulladumor/10-trending-nodejs-libraries-and-frameworks-to-boost-your-web-development-3aa5",
+        views: "15K+",
+      },
+      {
+        title: "A Deep Dive into .then() Method in JavaScript: How to Use it Like a Pro",
+        platform: "Dev.to",
+        date: "2024",
+        url: "https://dev.to/thetechguruworld/the-power-of-then-in-javascript-8ma",
         views: "12K+",
+      },
+      {
+        title: "Understanding Netflix's Backend Architecture: A Deep Dive",
+        platform: "Dev.to",
+        date: "2023",
+        url: "https://dev.to/rahulladumor/understanding-netflixs-backend-architecture-a-deep-dive-1f2c",
+        views: "20K+",
       },
     ],
 
@@ -1311,11 +1463,11 @@ const personalInfo = {
     // Awards & Recognition
     awards: [
       {
-        title: "AWS Community Builder of the Year",
-        issuer: "Amazon Web Services",
-        year: "2023",
+        title: "Distinguished Alumni Recognition - 60th Anniversary",
+        issuer: "Veer Narmad South Gujarat University",
+        year: "2024",
         description:
-          "Recognized for outstanding contributions to the AWS community",
+          "Recognized for outstanding professional achievements and contributions",
       },
       {
         title: "Best Technical Innovation",
