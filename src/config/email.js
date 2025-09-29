@@ -18,6 +18,15 @@ const createTransporter = () => {
 };
 
 // Helper functions for email templates
+const getContactMethodLabel = (method) => {
+  const methodMap = {
+    email: "Email",
+    phone: "Phone Call",
+    whatsapp: "WhatsApp",
+  };
+  return methodMap[method] || "Email";
+};
+
 const getSubjectLabel = (subject) => {
   const subjectMap = {
     "aws-consulting": "AWS Consulting Services",
@@ -182,6 +191,9 @@ const emailTemplates = {
                           ? data.subject
                           : data.otherSubject
                       }</p>
+                      <p><strong>Preferred Contact Method:</strong> ${getContactMethodLabel(
+                        data.contactMethod
+                      )}</p>
                       <div class="message-box">
                           <div class="message-text">${data.message}</div>
                       </div>
@@ -426,9 +438,15 @@ const emailTemplates = {
                               <div class="info-label">Subject</div>
                               <div class="info-value">${
                                 data.subject !== "other"
-                                  ? getSubjectLabel(data.subject)
+                                  ? data.subject
                                   : data.otherSubject
                               }</div>
+                          </div>
+                          <div class="info-item">
+                              <div class="info-label">Preferred Contact Method</div>
+                              <div class="info-value">${getContactMethodLabel(
+                                data.contactMethod
+                              )}</div>
                           </div>
                       </div>
                       
@@ -450,9 +468,7 @@ const emailTemplates = {
                   
                   <div class="action-buttons">
                       <a href="mailto:${data.email}?subject=Re: ${
-      data.subject !== "other"
-        ? getSubjectLabel(data.subject)
-        : data.otherSubject
+      data.subject !== "other" ? data.subject : data.otherSubject
     }" class="btn btn-primary">
                           Reply to ${data.name}
                       </a>
@@ -481,4 +497,8 @@ module.exports = {
   createTransporter,
   emailTemplates,
   adminEmail,
+  getContactMethodLabel,
+  getSubjectLabel,
+  getPriorityLevel,
+  getPriorityClass,
 };

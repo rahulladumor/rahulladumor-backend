@@ -5,6 +5,7 @@ require("dotenv").config();
 const PersonalInfo = require("../src/models/PersonalInfo");
 const Skills = require("../src/models/Skills");
 const Certifications = require("../src/models/Certifications");
+const Education = require("../src/models/Education");
 const Services = require("../src/models/Services");
 const WorkExperience = require("../src/models/WorkExperience");
 const Testimonials = require("../src/models/Testimonials");
@@ -37,6 +38,7 @@ const migrateData = async () => {
       PersonalInfo.deleteMany({}),
       Skills.deleteMany({}),
       Certifications.deleteMany({}),
+      Education.deleteMany({}),
       Services.deleteMany({}),
       WorkExperience.deleteMany({}),
       Testimonials.deleteMany({}),
@@ -57,6 +59,12 @@ const migrateData = async () => {
     console.log("🏆 Migrating certifications...");
     if (staticData.certifications && staticData.certifications.length > 0) {
       await Certifications.insertMany(staticData.certifications);
+    }
+
+    // Migrate Education
+    console.log("🎓 Migrating education...");
+    if (staticData.education && staticData.education.length > 0) {
+      await Education.insertMany(staticData.education);
     }
 
     // Migrate Services
@@ -132,6 +140,7 @@ const migrateData = async () => {
       PersonalInfo.countDocuments(),
       Skills.countDocuments(),
       Certifications.countDocuments(),
+      Education.countDocuments(),
       Services.countDocuments(),
       WorkExperience.countDocuments(),
       Testimonials.countDocuments(),
@@ -144,12 +153,13 @@ const migrateData = async () => {
     console.log(`   Personal Info: ${counts[0]} record(s)`);
     console.log(`   Skills: ${counts[1]} record(s)`);
     console.log(`   Certifications: ${counts[2]} record(s)`);
-    console.log(`   Services: ${counts[3]} record(s)`);
-    console.log(`   Work Experience: ${counts[4]} record(s)`);
-    console.log(`   Testimonials: ${counts[5]} record(s)`);
-    console.log(`   Case Studies: ${counts[6]} record(s)`);
-    console.log(`   Section Data: ${counts[7]} record(s)`);
-    console.log(`   Additional Info: ${counts[8]} record(s)`);
+    console.log(`   Education: ${counts[3]} record(s)`);
+    console.log(`   Services: ${counts[4]} record(s)`);
+    console.log(`   Work Experience: ${counts[5]} record(s)`);
+    console.log(`   Testimonials: ${counts[6]} record(s)`);
+    console.log(`   Case Studies: ${counts[7]} record(s)`);
+    console.log(`   Section Data: ${counts[8]} record(s)`);
+    console.log(`   Additional Info: ${counts[9]} record(s)`);
   } catch (error) {
     console.error("❌ Migration failed:", error);
     process.exit(1);

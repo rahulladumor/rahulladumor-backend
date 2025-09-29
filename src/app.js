@@ -23,6 +23,7 @@ const testimonialsRoutes = require("./routes/testimonials.routes");
 const caseStudiesRoutes = require("./routes/caseStudies.routes");
 const sectionDataRoutes = require("./routes/sectionData.routes");
 const additionalInfoRoutes = require("./routes/additionalInfo.routes");
+const educationRoutes = require("./routes/education.routes");
 const bulkUpdateRoutes = require("./routes/bulkUpdate.routes");
 
 const app = express();
@@ -96,6 +97,7 @@ app.use("/api/testimonials", testimonialsRoutes);
 app.use("/api/case-studies", caseStudiesRoutes);
 app.use("/api/section-data", sectionDataRoutes);
 app.use("/api/additional-info", additionalInfoRoutes);
+app.use("/api/education", educationRoutes);
 app.use("/api/bulk-update", bulkUpdateRoutes);
 
 // Root endpoint
@@ -119,6 +121,7 @@ app.get("/", (req, res) => {
       caseStudies: "/api/case-studies",
       sectionData: "/api/section-data",
       additionalInfo: "/api/additional-info",
+      education: "/api/education",
       bulkUpdate: "/api/bulk-update",
       bulkExport: "/api/bulk-update/export",
     },

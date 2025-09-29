@@ -155,7 +155,7 @@ const validateBulkUpdate = (req, res, next) => {
   }
 
   // Validate arrays if present
-  const arrayFields = ['certifications', 'services', 'workExperience', 'valuePropositions', 'languages', 'achievements', 'metrics'];
+  const arrayFields = ['certifications', 'education', 'services', 'workExperience', 'valuePropositions', 'languages', 'achievements', 'metrics'];
   
   for (const field of arrayFields) {
     if (body[field] && !Array.isArray(body[field])) {
@@ -183,6 +183,15 @@ const validateBulkUpdate = (req, res, next) => {
 
   next();
 };
+
+// Education validation schema
+const educationSchema = Joi.object({
+  institution: Joi.string().required().trim(),
+  degree: Joi.string().required().trim(),
+  duration: Joi.string().required(),
+  location: Joi.string().required().trim(),
+  gpa: Joi.string().optional().trim(),
+});
 
 // Additional Info validation schema
 const additionalInfoSchema = Joi.object({
@@ -236,6 +245,7 @@ const validateWorkExperience = validate(workExperienceSchema);
 const validateTestimonial = validate(testimonialsSchema);
 const validateCaseStudy = validate(caseStudiesSchema);
 const validateSectionData = validate(sectionDataSchema);
+const validateEducation = validate(educationSchema);
 const validateAdditionalInfo = validate(additionalInfoSchema);
 
 module.exports = {
@@ -247,6 +257,7 @@ module.exports = {
   validateTestimonial,
   validateCaseStudy,
   validateSectionData,
+  validateEducation,
   validateAdditionalInfo,
   validateBulkUpdate,
 };
