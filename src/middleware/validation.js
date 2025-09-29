@@ -74,6 +74,7 @@ const certificationsSchema = Joi.object({
   year: Joi.string().required(),
   credentialId: Joi.string().required().trim(),
   level: Joi.string().required().trim(),
+  icon: Joi.string().optional().trim().default("Award"),
 });
 
 // Services validation schema

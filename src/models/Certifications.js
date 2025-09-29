@@ -26,6 +26,12 @@ const certificationsSchema = new mongoose.Schema(
       required: true,
       trim: true,
     },
+    icon: {
+      type: String,
+      required: false,
+      trim: true,
+      default: "Award",
+    },
   },
   {
     timestamps: true,

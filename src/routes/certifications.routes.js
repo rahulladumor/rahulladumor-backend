@@ -25,14 +25,23 @@ const router = express.Router();
  *       properties:
  *         name:
  *           type: string
+ *           example: "AWS Certified Developer - Associate"
  *         issuer:
  *           type: string
+ *           example: "Amazon Web Services"
  *         year:
  *           type: string
+ *           example: "2023"
  *         credentialId:
  *           type: string
+ *           example: "AWS-DVA-2023"
  *         level:
  *           type: string
+ *           example: "Associate"
+ *         icon:
+ *           type: string
+ *           example: "Award"
+ *           default: "Award"
  */
 
 /**

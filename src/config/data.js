@@ -98,12 +98,14 @@ const personalInfo = {
 
   // Certifications
   certifications: [
+    
     {
       name: "AWS Certified Developer - Associate",
       issuer: "Amazon Web Services",
       year: "2023",
       credentialId: "AWS-DVA-2023",
       level: "Associate",
+      icon: "Award",
     },
     {
       name: "AWS Certified Solutions Architect - Associate",
@@ -111,6 +113,7 @@ const personalInfo = {
       year: "2023",
       credentialId: "AWS-ASA-2023",
       level: "Associate",
+      icon: "Award",
     },
     {
       name: "Technical Professional",
@@ -118,6 +121,7 @@ const personalInfo = {
       year: "2024",
       credentialId: "AWS-TP-2024",
       level: "Professional",
+      icon: "Award",
     },
     {
       name: "Cutshort Certified Javascript - Basic",
@@ -125,6 +129,7 @@ const personalInfo = {
       year: "2024",
       credentialId: "CS-JS-2024",
       level: "Basic",
+      icon: "Award",
     },
     {
       name: "AWS Community Builder (4x)",
@@ -132,6 +137,7 @@ const personalInfo = {
       year: "2022-Present",
       credentialId: "AWS-CB-2022",
       level: "Community",
+      icon: "Award",
     },
   ],
 
