@@ -18,10 +18,14 @@ const staticData = require("../src/config/data");
 
 const connectDB = async () => {
   try {
-    await mongoose.connect(process.env.MONGODB_URI);
-    console.log("✅ MongoDB Connected for migration");
-  } catch (error) {
     console.log(process.env.MONGODB_URI);
+    console.log('Database Name:', process.env.DB_NAME);
+    await mongoose.connect(process.env.MONGODB_URI, {
+      dbName: process.env.DB_NAME || 'rahulladumor_portfolio'
+    });
+    console.log("✅ MongoDB Connected for migration");
+    console.log(`📊 Using database: ${mongoose.connection.name}`);
+  } catch (error) {
     console.log("🚀 ~ connectDB ~ error:", error);
     console.error("❌ MongoDB connection failed:", error.message);
     process.exit(1);
