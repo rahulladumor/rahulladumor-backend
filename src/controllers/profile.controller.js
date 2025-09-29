@@ -2,6 +2,7 @@ const mongoose = require("mongoose");
 const PersonalInfo = require("../models/PersonalInfo");
 const Skills = require("../models/Skills");
 const Certifications = require("../models/Certifications");
+const Education = require("../models/Education");
 const Services = require("../models/Services");
 const WorkExperience = require("../models/WorkExperience");
 const Testimonials = require("../models/Testimonials");
@@ -25,6 +26,7 @@ const getProfile = asyncHandler(async (req, res) => {
       personalInfo,
       skills,
       certifications,
+      education,
       services,
       workExperience,
       testimonials,
@@ -41,6 +43,7 @@ const getProfile = asyncHandler(async (req, res) => {
       PersonalInfo.findOne().sort({ createdAt: -1 }),
       Skills.findOne().sort({ createdAt: -1 }),
       Certifications.find().sort({ createdAt: -1 }),
+      Education.find().sort({ createdAt: -1 }),
       Services.find().sort({ createdAt: -1 }),
       WorkExperience.find().sort({ createdAt: -1 }),
       Testimonials.find().sort({ createdAt: -1 }),
@@ -58,6 +61,7 @@ const getProfile = asyncHandler(async (req, res) => {
     console.log("🚀 ~ personalInfo:", personalInfo);
     console.log("🚀 ~ skills:", skills);
     console.log("🚀 ~ certifications count:", certifications?.length);
+    console.log("🚀 ~ education count:", education?.length);
     console.log("🚀 ~ services count:", services?.length);
     console.log("🚀 ~ workExperience count:", workExperience?.length);
     console.log("🚀 ~ testimonials count:", testimonials?.length);
@@ -106,6 +110,9 @@ const getProfile = asyncHandler(async (req, res) => {
       // Certifications
       certifications:
         certifications.length > 0 ? certifications : staticData.certifications,
+
+      // Education
+      education: education.length > 0 ? education : staticData.education,
 
       // Services
       services: services.length > 0 ? services : staticData.services,
