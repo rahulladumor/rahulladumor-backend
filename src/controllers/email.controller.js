@@ -29,6 +29,11 @@ const { createTransporter, emailTemplates, adminEmail } = require('../config/ema
  *           type: string
  *           example: I would like to discuss your AWS optimization services for my startup.
  *           description: The actual message content
+ *         contactMethod:
+ *           type: string
+ *           enum: [email, phone, whatsapp]
+ *           example: email
+ *           description: Preferred contact method
  *     ContactResponse:
  *       type: object
  *       properties:
@@ -60,7 +65,7 @@ const { createTransporter, emailTemplates, adminEmail } = require('../config/ema
  */
 const sendContactEmail = async (req, res) => {
   try {
-    const { name, email, subject, message, otherSubject } = req.body;
+    const { name, email, subject, message, contactMethod, otherSubject } = req.body;
 
     // Validate required fields
     if (!name || !email || !subject || !message) {
@@ -79,7 +84,7 @@ const sendContactEmail = async (req, res) => {
       });
     }
 
-    const contactData = { name, email, subject, message, otherSubject };
+    const contactData = { name, email, subject, message, contactMethod: contactMethod || 'email', otherSubject };
     const transporter = createTransporter();
 
     // Prepare email templates

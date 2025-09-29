@@ -1,6 +1,7 @@
 const PersonalInfo = require("../models/PersonalInfo");
 const Skills = require("../models/Skills");
 const Certifications = require("../models/Certifications");
+const Education = require("../models/Education");
 const Services = require("../models/Services");
 const WorkExperience = require("../models/WorkExperience");
 const Testimonials = require("../models/Testimonials");
@@ -47,12 +48,13 @@ const AdditionalInfo = require("../models/AdditionalInfo");
  *               bio:
  *                 type: string
  *               experience:
- *                 type: object
  *               valuePropositions:
  *                 type: array
  *               skills:
  *                 type: object
  *               certifications:
+ *                 type: array
+ *               education:
  *                 type: array
  *               achievements:
  *                 type: array
@@ -108,6 +110,7 @@ const bulkUpdatePortfolio = async (req, res) => {
       PersonalInfo.deleteMany({}),
       Skills.deleteMany({}),
       Certifications.deleteMany({}),
+      Education.deleteMany({}),
       Services.deleteMany({}),
       WorkExperience.deleteMany({}),
       Testimonials.deleteMany({}),
@@ -152,6 +155,12 @@ const bulkUpdatePortfolio = async (req, res) => {
     if (portfolioData.certifications && Array.isArray(portfolioData.certifications)) {
       await Certifications.insertMany(portfolioData.certifications);
       updateSummary.certifications = portfolioData.certifications.length;
+    }
+
+    // Update Education
+    if (portfolioData.education && Array.isArray(portfolioData.education)) {
+      await Education.insertMany(portfolioData.education);
+      updateSummary.education = portfolioData.education.length;
     }
 
     // Update Services
@@ -245,6 +254,7 @@ const bulkExportPortfolio = async (req, res) => {
       personalInfo,
       skills,
       certifications,
+      education,
       services,
       workExperience,
       testimonials,
@@ -255,6 +265,7 @@ const bulkExportPortfolio = async (req, res) => {
       PersonalInfo.findOne(),
       Skills.findOne(),
       Certifications.find(),
+      Education.find(),
       Services.find(),
       WorkExperience.find(),
       Testimonials.find(),
@@ -298,6 +309,7 @@ const bulkExportPortfolio = async (req, res) => {
 
       // Arrays
       certifications: certifications || [],
+      education: education || [],
       services: services || [],
       workExperience: workExperience || [],
 

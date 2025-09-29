@@ -21,6 +21,7 @@ const router = express.Router();
  *             email: "john.doe@example.com"
  *             subject: "Inquiry about AWS consulting services"
  *             message: "I would like to discuss your AWS optimization services for my startup. We're currently spending too much on infrastructure and need expert guidance."
+ *             contactMethod: "email"
  *     responses:
  *       200:
  *         description: Email sent successfully

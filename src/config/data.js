@@ -28,15 +28,25 @@ const personalInfo = {
   ],
 
   // Professional Summary
-  bio: `Hey, I'm Rahul, 4x AWS Community Builder, three-time certified, and the guy start-ups call when "it just needs to WORK (securely) by launch day."
-
-⚡ 8 years building micro-service & event-driven stacks:
-• Architected a zero-downtime migration to AWS Lambda + EventBridge that now processes 5M orders/mo <200ms.
-• Hardened fintech APIs with DevSecOps pipelines (SCA + DAST) reducing vuln MTTR from 14 days → 48 hrs.
-• Rolled out IAM least-privilege and KMS envelope encryption across 200+ resources—passed audit first try.
-• Prototyped an Agentic-AI workflow (Bedrock + LangChain) that auto-triages cloud incidents.
-
-Trusted by Series A-C startups & Fortune 500 companies for mission-critical cloud transformations. Currently pursuing PG Certificate in Agentic AI from IIT Roorkee.`,
+  bio: `<div class="space-y-4">
+    <p class="text-gray-800">
+      Hey, I'm Rahul, <strong>4x AWS Community Builder</strong>, three-time certified, and the guy start-ups call when "it just needs to <em>WORK (securely)</em> by launch day."
+    </p>
+    
+    <div class="mt-4">
+      <h4 class="font-semibold text-gray-900 mb-3">⚡ 8 years building micro-service & event-driven stacks:</h4>
+      <ul class="space-y-2 text-gray-700">
+        <li>• Architected a <strong>zero-downtime migration</strong> to AWS Lambda + EventBridge that now processes <span class="font-medium">5M orders/mo &lt;200ms</span>.</li>
+        <li>• Hardened fintech APIs with <strong>DevSecOps pipelines</strong> (SCA + DAST) reducing vuln MTTR from <span class="font-medium">14 days → 48 hrs</span>.</li>
+        <li>• Rolled out <strong>IAM least-privilege</strong> and KMS envelope encryption across <span class="font-medium">200+ resources</span>—passed audit first try.</li>
+        <li>• Prototyped an <strong>Agentic-AI workflow</strong> (Bedrock + LangChain) that auto-triages cloud incidents.</li>
+      </ul>
+    </div>
+    
+    <p class="text-gray-800 mt-4">
+      Trusted by <strong>Series A-C startups</strong> & <strong>Fortune 500 companies</strong> for mission-critical cloud transformations. Currently pursuing <em>PG Certificate in Agentic AI from IIT Roorkee</em>.
+    </p>
+  </div>`,
 
   // Experience
   experience: {
@@ -1544,6 +1554,9 @@ module.exports = {
   
   // Certifications
   certifications: personalInfo.certifications,
+  
+  // Education
+  education: personalInfo.education,
   
   // Services
   services: personalInfo.services,

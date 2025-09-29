@@ -6,9 +6,12 @@ A professional Node.js Express API backend for Rahul Ladumor's portfolio website
 
 - **MongoDB Integration**: Object-wise data storage with professional schema design
 - **RESTful APIs**: Complete CRUD operations for all data objects
+- **Education Module**: Full education management with GPA support ⭐ *NEW*
+- **Enhanced Contact Form**: Contact method preferences (Email/Phone/WhatsApp) ⭐ *NEW*
 - **Data Validation**: Joi-based request validation
 - **Error Handling**: Comprehensive error handling middleware
 - **API Documentation**: Interactive Swagger/OpenAPI documentation
+- **Bulk Operations**: Mass data import/export with education support
 - **Backward Compatibility**: Maintains existing frontend data structure
 - **Professional Structure**: Clean, scalable file organization
 - **Data Migration**: Automated script to migrate from static data to MongoDB
@@ -27,13 +30,15 @@ rahulladumor-backend/
 │   │   ├── personalInfo.controller.js
 │   │   ├── skills.controller.js
 │   │   ├── certifications.controller.js
+│   │   ├── education.controller.js  # NEW: Education CRUD operations
 │   │   ├── services.controller.js
 │   │   ├── workExperience.controller.js
 │   │   ├── testimonials.controller.js
 │   │   ├── caseStudies.controller.js
 │   │   ├── sectionData.controller.js
-│   │   ├── profile.controller.js    # Updated for MongoDB integration
-│   │   ├── email.controller.js
+│   │   ├── profile.controller.js    # Updated for MongoDB integration + Education
+│   │   ├── email.controller.js      # Updated with contactMethod support
+│   │   ├── bulkUpdate.controller.js # Updated with Education support
 │   │   └── health.controller.js
 │   ├── middleware/
 │   │   ├── validation.js        # Joi validation schemas
@@ -42,22 +47,26 @@ rahulladumor-backend/
 │   │   ├── PersonalInfo.js
 │   │   ├── Skills.js
 │   │   ├── Certifications.js
+│   │   ├── Education.js         # NEW: Education model with GPA support
 │   │   ├── Services.js
 │   │   ├── WorkExperience.js
 │   │   ├── Testimonials.js
 │   │   ├── CaseStudies.js
-│   │   └── SectionData.js
+│   │   ├── SectionData.js
+│   │   └── AdditionalInfo.js
 │   ├── routes/
 │   │   ├── personalInfo.routes.js
 │   │   ├── skills.routes.js
 │   │   ├── certifications.routes.js
+│   │   ├── education.routes.js   # NEW: Education API routes
 │   │   ├── services.routes.js
 │   │   ├── workExperience.routes.js
 │   │   ├── testimonials.routes.js
 │   │   ├── caseStudies.routes.js
 │   │   ├── sectionData.routes.js
-│   │   ├── profile.routes.js
-│   │   ├── email.routes.js
+│   │   ├── profile.routes.js     # Updated with Education support
+│   │   ├── email.routes.js       # Updated with contactMethod support
+│   │   ├── bulkUpdate.routes.js  # Updated with Education support
 │   │   └── health.routes.js
 │   └── app.js                   # Express app configuration
 ├── scripts/
@@ -140,9 +149,9 @@ Visit `http://localhost:3002/api-docs` for interactive Swagger documentation.
 
 #### Legacy Endpoints (Backward Compatibility)
 
-- `GET /profile` - Get complete profile data
+- `GET /profile` - Get complete profile data (includes Education)
 - `GET /health` - Health check
-- `POST /contact` - Send contact email
+- `POST /contact` - Send contact email (supports contactMethod)
 
 #### New MongoDB-based Endpoints
 
@@ -167,6 +176,14 @@ Visit `http://localhost:3002/api-docs` for interactive Swagger documentation.
 - `POST /api/certifications` - Create certification
 - `PUT /api/certifications/:id` - Update certification
 - `DELETE /api/certifications/:id` - Delete certification
+
+**Education** ⭐ *NEW*
+
+- `GET /api/education` - Get all education records
+- `GET /api/education/:id` - Get single education record
+- `POST /api/education` - Create education record
+- `PUT /api/education/:id` - Update education record
+- `DELETE /api/education/:id` - Delete education record
 
 **Services**
 
@@ -208,6 +225,11 @@ Visit `http://localhost:3002/api-docs` for interactive Swagger documentation.
 - `PUT /api/section-data/:sectionType` - Update section data
 - `DELETE /api/section-data/:sectionType` - Delete section data
 
+**Bulk Operations** ⭐ *UPDATED*
+
+- `PUT /api/bulk-update` - Update all portfolio data (includes Education)
+- `GET /api/bulk-update/export` - Export all portfolio data (includes Education)
+
 ### Response Format
 
 All API responses follow a consistent format:
@@ -246,11 +268,13 @@ npm run migrate    # Run data migration script
 1. **personalInfo** - Personal information (singleton)
 2. **skills** - Skills data (singleton)
 3. **certifications** - Individual certification records
-4. **services** - Individual service records
-5. **workExperience** - Individual work experience records
-6. **testimonials** - Individual testimonial records
-7. **caseStudies** - Individual case study records
-8. **sectionData** - Complex section data (problemSection, solutionSection, etc.)
+4. **education** - Individual education records ⭐ *NEW*
+5. **services** - Individual service records
+6. **workExperience** - Individual work experience records
+7. **testimonials** - Individual testimonial records
+8. **caseStudies** - Individual case study records
+9. **sectionData** - Complex section data (problemSection, solutionSection, etc.)
+10. **additionalInfo** - Additional portfolio information
 
 ## 🛡️ Security Features
 
@@ -300,6 +324,25 @@ COPY . .
 EXPOSE 3002
 CMD ["npm", "start"]
 ```
+
+## 🆕 Recent Updates
+
+### Education Module (Latest)
+- **NEW Education API**: Complete CRUD operations for education records
+- **GPA Support**: Optional GPA field for academic performance tracking
+- **Full Integration**: Education data included in Profile API, Bulk Operations, and Migration
+- **Swagger Documentation**: Complete API documentation with examples
+
+### Email API Enhancements (Latest)
+- **Contact Method Support**: New `contactMethod` field in contact form
+- **Enhanced Templates**: Email templates now display preferred contact method
+- **Options**: Email, Phone Call, WhatsApp contact preferences
+- **Backward Compatibility**: Maintains compatibility with existing integrations
+
+### Data Structure Updates
+- **Education Records**: Institution, degree, duration, location, GPA
+- **Contact Preferences**: Enhanced contact form with method selection
+- **Migration Support**: Automated migration includes all new data structures
 
 ## 📝 Development Guidelines
 
