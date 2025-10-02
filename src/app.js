@@ -25,6 +25,7 @@ const sectionDataRoutes = require("./routes/sectionData.routes");
 const additionalInfoRoutes = require("./routes/additionalInfo.routes");
 const educationRoutes = require("./routes/education.routes");
 const bulkUpdateRoutes = require("./routes/bulkUpdate.routes");
+const articlesRoutes = require("./routes/articles.routes");
 
 const app = express();
 
@@ -99,6 +100,7 @@ app.use("/api/section-data", sectionDataRoutes);
 app.use("/api/additional-info", additionalInfoRoutes);
 app.use("/api/education", educationRoutes);
 app.use("/api/bulk-update", bulkUpdateRoutes);
+app.use("/api/articles", articlesRoutes);
 
 // Root endpoint
 app.get("/", (req, res) => {
@@ -124,6 +126,7 @@ app.get("/", (req, res) => {
       education: "/api/education",
       bulkUpdate: "/api/bulk-update",
       bulkExport: "/api/bulk-update/export",
+      articles: "/api/articles",
     },
   });
 });
