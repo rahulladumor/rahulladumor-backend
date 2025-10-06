@@ -216,7 +216,7 @@ const emailTemplates = {
                   <div class="footer-text">
                       <strong>Rahul Ladumor</strong><br>
                       3x AWS Certified Full-Stack JavaScript & Cloud Engineer<br>
-                      Email: rahuldladumor@gmail.com<br>
+                      Email: contact@acloudwithrahul.in<br>
                       Website: https://www.rahulladumor.in
                   </div>
               </div>

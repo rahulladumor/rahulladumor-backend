@@ -8,8 +8,8 @@ const personalInfo = {
   image: "/assets/images/profile.avif",
 
   // Contact Information
-  email: "rahuldladumor@gmail.com",
-  phone: "+91-7567611653",
+  email: "contact@acloudwithrahul.in",
+  phone: "+91-9586661233",
   website: "https://www.rahulladumor.in",
 
   // Social Media
@@ -34,7 +34,7 @@ const personalInfo = {
     </p>
     
     <div class="mt-4">
-      <h4 class="font-semibold text-gray-900 mb-3">⚡ 8 years building micro-service & event-driven stacks:</h4>
+      <p class="font-semibold text-gray-900 mb-3">8 years building micro-service & event-driven stacks:</p>
       <ul class="space-y-2 text-gray-700">
         <li>• Architected a <strong>zero-downtime migration</strong> to AWS Lambda + EventBridge that now processes <span class="font-medium">5M orders/mo &lt;200ms</span>.</li>
         <li>• Hardened fintech APIs with <strong>DevSecOps pipelines</strong> (SCA + DAST) reducing vuln MTTR from <span class="font-medium">14 days → 48 hrs</span>.</li>

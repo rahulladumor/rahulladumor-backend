@@ -15,19 +15,19 @@ const getArticles = asyncHandler(async (req, res) => {
   const apiKey =
     process.env.DEV_COMMUNITY_API_KEY || "hfqg2GeuqRv3gZ9qvhR8VyBw";
 
-//   if (!apiKey) {
-//     return res.status(500).json({
-//       status: "error",
-//       message: "DEV Community API key not configured",
-//       data: [],
-//       pagination: {
-//         page: page,
-//         per_page: perPage,
-//         total: 0,
-//         total_pages: 0,
-//       },
-//     });
-//   }
+  if (!apiKey) {
+    return res.status(500).json({
+      status: "error",
+      message: "DEV Community API key not configured",
+      data: [],
+      pagination: {
+        page: page,
+        per_page: perPage,
+        total: 0,
+        total_pages: 0,
+      },
+    });
+  }
 
   // Build URL with pagination and filter parameters
     let url = `https://dev.to/api/articles?username=${username}&per_page=${perPage}&page=${page}`;
@@ -48,7 +48,7 @@ const getArticles = asyncHandler(async (req, res) => {
   try {
     const response = await fetch(url, {
       headers: {
-        // "api-key": apiKey,
+        "api-key": apiKey,
         "Content-Type": "application/json",
       },
     });

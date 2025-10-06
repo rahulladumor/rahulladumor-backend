@@ -207,7 +207,7 @@ const router = express.Router();
  *                 name: "Rahul Ladumor"
  *                 title: "3x AWS Certified Full-Stack JavaScript & Cloud Engineer"
  *                 tagline: "Serverless Architecture Expert | Saving Companies $100K+ Annually"
- *                 email: "rahuldladumor@gmail.com"
+ *                 email: "contact@acloudwithrahul.in"
  *                 phone: "+91-7567611653"
  *                 location: "Surat, Gujarat, India"
  *                 website: "https://www.rahulladumor.in"

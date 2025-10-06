@@ -90,7 +90,7 @@ const getProfile = asyncHandler(async (req, res) => {
             timezone: staticData.personalInfo?.timezone || "GMT+5:30",
             image:
               staticData.personalInfo?.image || "/assets/images/profile.avif",
-            email: staticData.personalInfo?.email || "rahuldladumor@gmail.com",
+            email: staticData.personalInfo?.email || "contact@acloudwithrahul.in",
             phone: staticData.personalInfo?.phone || "+91-7567611653",
             website:
               staticData.personalInfo?.website || "https://www.rahulladumor.in",
