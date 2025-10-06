@@ -237,6 +237,19 @@ const additionalInfoSchema = Joi.object({
   ).default([]),
 });
 
+// Authentication validation schemas
+const authRegisterSchema = Joi.object({
+  username: Joi.string().required().trim().min(3).max(30),
+  email: Joi.string().email().required().trim().lowercase(),
+  password: Joi.string().required().min(6),
+  role: Joi.string().valid("admin", "user").default("user"),
+});
+
+const authLoginSchema = Joi.object({
+  identifier: Joi.string().required().trim(),
+  password: Joi.string().required(),
+});
+
 // Validation middleware functions
 const validatePersonalInfo = validate(personalInfoSchema);
 const validateSkills = validate(skillsSchema);
@@ -248,6 +261,8 @@ const validateCaseStudy = validate(caseStudiesSchema);
 const validateSectionData = validate(sectionDataSchema);
 const validateEducation = validate(educationSchema);
 const validateAdditionalInfo = validate(additionalInfoSchema);
+const validateAuth = validate(authRegisterSchema);
+const validateLogin = validate(authLoginSchema);
 
 module.exports = {
   validatePersonalInfo,
@@ -261,4 +276,6 @@ module.exports = {
   validateEducation,
   validateAdditionalInfo,
   validateBulkUpdate,
+  validateAuth,
+  validateLogin,
 };

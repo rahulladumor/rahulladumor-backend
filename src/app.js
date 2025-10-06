@@ -12,6 +12,7 @@ connectDB();
 const healthRoutes = require("./routes/health.routes");
 const profileRoutes = require("./routes/profile.routes");
 const emailRoutes = require("./routes/email.routes");
+const authRoutes = require("./routes/auth.routes");
 
 // Import new MongoDB-based routes
 const personalInfoRoutes = require("./routes/personalInfo.routes");
@@ -70,18 +71,32 @@ app.use(cors(corsOptions));
 app.use(express.json({ limit: "10mb" }));
 app.use(express.urlencoded({ extended: true, limit: "10mb" }));
 
+// Serve static files from public directory
+app.use('/public', express.static('public'));
+
 // Swagger documentation with custom options
 const swaggerUiOptions = {
-  customCss: '.swagger-ui .topbar { display: none }',
+  customCss: `
+    .swagger-ui .topbar { display: none }
+    .swagger-ui .auth-wrapper { margin-bottom: 20px; }
+    .swagger-ui .auth-container .auth-btn-wrapper { margin-top: 10px; }
+  `,
   customSiteTitle: "Rahul Ladumor Portfolio API Documentation",
+  customJs: '/public/swagger-custom.js',
   swaggerOptions: {
     persistAuthorization: true,
     tryItOutEnabled: true,
     supportedSubmitMethods: ['get', 'put', 'post', 'delete', 'options', 'head', 'patch', 'trace'],
+    onComplete: function() {
+      // This will be overridden by our custom JS
+    }
   }
 };
 
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(specs, swaggerUiOptions));
+
+// Authentication routes
+app.use("/api/auth", authRoutes);
 
 // Legacy routes (for backward compatibility)
 app.use("/", healthRoutes);
@@ -109,6 +124,17 @@ app.get("/", (req, res) => {
     documentation: "/api-docs",
     version: "2.0.0",
     endpoints: {
+      // Authentication endpoints
+      auth: "/api/auth",
+      login: "/api/auth/login",
+      register: "/api/auth/register",
+      logout: "/api/auth/logout",
+      users: "/api/auth/users",
+      pendingUsers: "/api/auth/users/pending",
+      activateUser: "/api/auth/users/:id/activate",
+      deactivateUser: "/api/auth/users/:id/deactivate",
+      // Demo and Documentation
+      authDemo: "/public/auth-demo.html",
       // Legacy endpoints
       health: "/health",
       profile: "/profile",

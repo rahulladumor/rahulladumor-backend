@@ -7,6 +7,7 @@ const {
   deleteCaseStudy,
 } = require("../controllers/caseStudies.controller");
 const { validateCaseStudy } = require("../middleware/validation");
+const { protect } = require("../middleware/auth");
 
 const router = express.Router();
 
@@ -106,8 +107,8 @@ const router = express.Router();
  */
 router
   .route("/")
-  .get(getCaseStudies)
-  .post(validateCaseStudy, createCaseStudy);
+  .get(protect, getCaseStudies)
+  .post(protect, validateCaseStudy, createCaseStudy);
 
 /**
  * @swagger
@@ -163,8 +164,8 @@ router
  */
 router
   .route("/:id")
-  .get(getCaseStudy)
-  .put(validateCaseStudy, updateCaseStudy)
-  .delete(deleteCaseStudy);
+  .get(protect, getCaseStudy)
+  .put(protect, validateCaseStudy, updateCaseStudy)
+  .delete(protect, deleteCaseStudy);
 
 module.exports = router;

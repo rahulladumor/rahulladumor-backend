@@ -7,6 +7,7 @@ const {
   deleteService,
 } = require("../controllers/services.controller");
 const { validateService } = require("../middleware/validation");
+const { protect } = require("../middleware/auth");
 
 const router = express.Router();
 
@@ -74,8 +75,8 @@ const router = express.Router();
  */
 router
   .route("/")
-  .get(getServices)
-  .post(validateService, createService);
+  .get(protect, getServices)
+  .post(protect, validateService, createService);
 
 /**
  * @swagger
@@ -131,8 +132,8 @@ router
  */
 router
   .route("/:id")
-  .get(getService)
-  .put(validateService, updateService)
-  .delete(deleteService);
+  .get(protect, getService)
+  .put(protect, validateService, updateService)
+  .delete(protect, deleteService);
 
 module.exports = router;

@@ -6,6 +6,7 @@ const {
   deletePersonalInfo,
 } = require("../controllers/personalInfo.controller");
 const { validatePersonalInfo } = require("../middleware/validation");
+const { protect } = require("../middleware/auth");
 
 const router = express.Router();
 
@@ -156,8 +157,8 @@ const router = express.Router();
  */
 router
   .route("/")
-  .get(getPersonalInfo)
-  .post(validatePersonalInfo, createPersonalInfo);
+  .get(protect, getPersonalInfo)
+  .post(protect, validatePersonalInfo, createPersonalInfo);
 
 /**
  * @swagger
@@ -199,7 +200,7 @@ router
  */
 router
   .route("/:id")
-  .put(validatePersonalInfo, updatePersonalInfo)
-  .delete(deletePersonalInfo);
+  .put(protect, validatePersonalInfo, updatePersonalInfo)
+  .delete(protect, deletePersonalInfo);
 
 module.exports = router;

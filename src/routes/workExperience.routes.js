@@ -7,6 +7,7 @@ const {
   deleteWorkExperience,
 } = require("../controllers/workExperience.controller");
 const { validateWorkExperience } = require("../middleware/validation");
+const { protect } = require("../middleware/auth");
 
 const router = express.Router();
 
@@ -85,8 +86,8 @@ const router = express.Router();
  */
 router
   .route("/")
-  .get(getWorkExperiences)
-  .post(validateWorkExperience, createWorkExperience);
+  .get(protect, getWorkExperiences)
+  .post(protect, validateWorkExperience, createWorkExperience);
 
 /**
  * @swagger
@@ -142,8 +143,8 @@ router
  */
 router
   .route("/:id")
-  .get(getWorkExperience)
-  .put(validateWorkExperience, updateWorkExperience)
-  .delete(deleteWorkExperience);
+  .get(protect, getWorkExperience)
+  .put(protect, validateWorkExperience, updateWorkExperience)
+  .delete(protect, deleteWorkExperience);
 
 module.exports = router;

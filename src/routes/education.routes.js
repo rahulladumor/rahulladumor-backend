@@ -7,6 +7,7 @@ const {
   deleteEducation,
 } = require("../controllers/education.controller");
 const { validateEducation } = require("../middleware/validation");
+const { protect } = require("../middleware/auth");
 
 const router = express.Router();
 
@@ -135,8 +136,8 @@ const router = express.Router();
  */
 router
   .route("/")
-  .get(getEducation)
-  .post(validateEducation, createEducation);
+  .get(protect, getEducation)
+  .post(protect, validateEducation, createEducation);
 
 /**
  * @swagger
@@ -254,8 +255,8 @@ router
  */
 router
   .route("/:id")
-  .get(getEducationById)
-  .put(validateEducation, updateEducation)
-  .delete(deleteEducation);
+  .get(protect, getEducationById)
+  .put(protect, validateEducation, updateEducation)
+  .delete(protect, deleteEducation);
 
 module.exports = router;

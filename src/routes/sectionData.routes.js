@@ -7,6 +7,7 @@ const {
   deleteSectionData,
 } = require("../controllers/sectionData.controller");
 const { validateSectionData } = require("../middleware/validation");
+const { protect } = require("../middleware/auth");
 
 const router = express.Router();
 
@@ -67,8 +68,8 @@ const router = express.Router();
  */
 router
   .route("/")
-  .get(getAllSectionData)
-  .post(validateSectionData, createSectionData);
+  .get(protect, getAllSectionData)
+  .post(protect, validateSectionData, createSectionData);
 
 /**
  * @swagger
@@ -127,8 +128,8 @@ router
  */
 router
   .route("/:sectionType")
-  .get(getSectionData)
-  .put(validateSectionData, updateSectionData)
-  .delete(deleteSectionData);
+  .get(protect, getSectionData)
+  .put(protect, validateSectionData, updateSectionData)
+  .delete(protect, deleteSectionData);
 
 module.exports = router;

@@ -6,6 +6,7 @@ const {
   deleteSkills,
 } = require("../controllers/skills.controller");
 const { validateSkills } = require("../middleware/validation");
+const { protect } = require("../middleware/auth");
 
 const router = express.Router();
 
@@ -70,7 +71,7 @@ const router = express.Router();
  *       400:
  *         description: Validation error
  */
-router.route("/").get(getSkills).post(validateSkills, createSkills);
+router.route("/").get(protect, getSkills).post(protect, validateSkills, createSkills);
 
 /**
  * @swagger
@@ -112,7 +113,7 @@ router.route("/").get(getSkills).post(validateSkills, createSkills);
  */
 router
   .route("/:id")
-  .put(validateSkills, updateSkills)
-  .delete(deleteSkills);
+  .put(protect, validateSkills, updateSkills)
+  .delete(protect, deleteSkills);
 
 module.exports = router;

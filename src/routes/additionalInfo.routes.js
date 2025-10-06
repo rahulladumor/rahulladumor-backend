@@ -6,6 +6,7 @@ const {
   deleteAdditionalInfo,
 } = require("../controllers/additionalInfo.controller");
 const { validateAdditionalInfo } = require("../middleware/validation");
+const { protect } = require("../middleware/auth");
 
 const router = express.Router();
 
@@ -122,8 +123,8 @@ const router = express.Router();
  */
 router
   .route("/")
-  .get(getAdditionalInfo)
-  .post(validateAdditionalInfo, createAdditionalInfo);
+  .get(protect, getAdditionalInfo)
+  .post(protect, validateAdditionalInfo, createAdditionalInfo);
 
 /**
  * @swagger
@@ -165,7 +166,7 @@ router
  */
 router
   .route("/:id")
-  .put(validateAdditionalInfo, updateAdditionalInfo)
-  .delete(deleteAdditionalInfo);
+  .put(protect, validateAdditionalInfo, updateAdditionalInfo)
+  .delete(protect, deleteAdditionalInfo);
 
 module.exports = router;

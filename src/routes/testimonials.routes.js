@@ -7,6 +7,7 @@ const {
   deleteTestimonial,
 } = require("../controllers/testimonials.controller");
 const { validateTestimonial } = require("../middleware/validation");
+const { protect } = require("../middleware/auth");
 
 const router = express.Router();
 
@@ -79,8 +80,8 @@ const router = express.Router();
  */
 router
   .route("/")
-  .get(getTestimonials)
-  .post(validateTestimonial, createTestimonial);
+  .get(protect, getTestimonials)
+  .post(protect, validateTestimonial, createTestimonial);
 
 /**
  * @swagger
@@ -136,8 +137,8 @@ router
  */
 router
   .route("/:id")
-  .get(getTestimonial)
-  .put(validateTestimonial, updateTestimonial)
-  .delete(deleteTestimonial);
+  .get(protect, getTestimonial)
+  .put(protect, validateTestimonial, updateTestimonial)
+  .delete(protect, deleteTestimonial);
 
 module.exports = router;

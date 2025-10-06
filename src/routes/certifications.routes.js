@@ -7,12 +7,15 @@ const {
   deleteCertification,
 } = require("../controllers/certifications.controller");
 const { validateCertification } = require("../middleware/validation");
+const { protect } = require("../middleware/auth");
 
 const router = express.Router();
 
 /**
  * @swagger
- * components:
+ * tags:
+ *   name: Certifications
+ *   description: API to manage certifications
  *   schemas:
  *     Certification:
  *       type: object
@@ -84,8 +87,8 @@ const router = express.Router();
  */
 router
   .route("/")
-  .get(getCertifications)
-  .post(validateCertification, createCertification);
+  .get(protect, getCertifications)
+  .post(protect, validateCertification, createCertification);
 
 /**
  * @swagger
@@ -141,8 +144,8 @@ router
  */
 router
   .route("/:id")
-  .get(getCertification)
-  .put(validateCertification, updateCertification)
-  .delete(deleteCertification);
+  .get(protect, getCertification)
+  .put(protect, validateCertification, updateCertification)
+  .delete(protect, deleteCertification);
 
 module.exports = router;

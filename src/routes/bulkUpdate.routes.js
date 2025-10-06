@@ -1,6 +1,7 @@
 const express = require("express");
 const { bulkUpdatePortfolio, bulkExportPortfolio } = require("../controllers/bulkUpdate.controller");
 const { validateBulkUpdate } = require("../middleware/validation");
+const { protect } = require("../middleware/auth");
 
 const router = express.Router();
 
@@ -44,7 +45,7 @@ const router = express.Router();
  *       500:
  *         description: Server error
  */
-router.put("/", validateBulkUpdate, bulkUpdatePortfolio);
+router.put("/", protect, validateBulkUpdate, bulkUpdatePortfolio);
 
 /**
  * @swagger
@@ -75,6 +76,6 @@ router.put("/", validateBulkUpdate, bulkUpdatePortfolio);
  *                 error:
  *                   type: string
  */
-router.get("/export", bulkExportPortfolio);
+router.get("/export", protect, bulkExportPortfolio);
 
 module.exports = router;
