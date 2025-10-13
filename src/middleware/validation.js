@@ -20,6 +20,7 @@ const validate = (schema) => {
 
 // Personal Info validation schema
 const personalInfoSchema = Joi.object({
+  mainHeading: Joi.string().required().trim(),
   name: Joi.string().required().trim(),
   title: Joi.string().required().trim(),
   tagline: Joi.string().required().trim(),
